@@ -37,6 +37,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.os.PowerManager;
 import android.os.Vibrator;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
@@ -75,6 +76,7 @@ public class SoundSettings extends SettingsPreferenceFragment implements
     private static final String KEY_DOCK_AUDIO_SETTINGS = "dock_audio";
     private static final String KEY_DOCK_SOUNDS = "dock_sounds";
     private static final String KEY_DOCK_AUDIO_MEDIA_ENABLED = "dock_audio_media_enabled";
+    private static final String VOLUME_STEPS = "volume_steps";
 
     private static final String[] NEED_VOICE_CAPABILITY = {
             KEY_RINGTONE, KEY_DTMF_TONE, KEY_CATEGORY_CALLS,
@@ -84,6 +86,7 @@ public class SoundSettings extends SettingsPreferenceFragment implements
     private static final int MSG_UPDATE_RINGTONE_SUMMARY = 1;
     private static final int MSG_UPDATE_NOTIFICATION_SUMMARY = 2;
 
+    private ListPreference mVolumeSteps;
     private CheckBoxPreference mVibrateWhenRinging;
     private CheckBoxPreference mDtmfTone;
     private CheckBoxPreference mSoundEffects;
@@ -171,6 +174,13 @@ public class SoundSettings extends SettingsPreferenceFragment implements
         mLockSounds.setPersistent(false);
         mLockSounds.setChecked(Settings.System.getInt(resolver,
                 Settings.System.LOCKSCREEN_SOUNDS_ENABLED, 1) != 0);
+
+        mVolumeSteps = (ListPreference) findPreference(VOLUME_STEPS);
+        mVolumeSteps.setOnPreferenceChangeListener(this);
+        int volumeSteps = Settings.System.getInt(getContentResolver(),
+                Settings.System.AUDIO_VOLUME_STEPS, 15);
+        mVolumeSteps.setValue(Integer.toString(volumeSteps));
+        mVolumeSteps.setSummary(mVolumeSteps.getEntry());
 
         mRingtonePreference = findPreference(KEY_RINGTONE);
         mNotificationPreference = findPreference(KEY_NOTIFICATION_SOUND);
@@ -350,6 +360,15 @@ public class SoundSettings extends SettingsPreferenceFragment implements
             } catch (NumberFormatException e) {
                 Log.e(TAG, "could not persist emergency tone setting", e);
             }
+        } else if (preference == mVolumeSteps) {
+            final int value = Integer.valueOf((String) objValue);
+            final int index = mVolumeSteps.findIndexOfValue((String) objValue);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.AUDIO_VOLUME_STEPS, value);
+            mVolumeSteps.setSummary(mVolumeSteps.getEntries()[index]);
+            PowerManager pm = (PowerManager) getActivity()
+                    .getSystemService(Context.POWER_SERVICE);
+            pm.reboot("Resetting Media Volume...");
         }
 
         return true;
