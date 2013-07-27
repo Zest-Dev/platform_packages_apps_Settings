@@ -90,7 +90,7 @@ public class DevelopmentSettings extends PreferenceFragment
     public static final String PREF_SHOW = "show";
 
     private static final String ENABLE_ADB = "enable_adb";
-    private static final String REBOOT_IN_POWER_MENU = "reboot_in_power"
+    private static final String REBOOT_IN_POWER_MENU = "reboot_in_power";
     private static final String CLEAR_ADB_KEYS = "clear_adb_keys";
     private static final String KEEP_SCREEN_ON = "keep_screen_on";
     private static final String ALLOW_MOCK_LOCATION = "allow_mock_location";
@@ -237,7 +237,7 @@ public class DevelopmentSettings extends PreferenceFragment
         }
 
         mBugreport = findPreference(BUGREPORT);
-        mReboot = findPreference(REBOOT_IN_POWER_MENU);
+        mReboot = findAndInitCheckboxPref(REBOOT_IN_POWER_MENU);
         mBugreportInPower = findAndInitCheckboxPref(BUGREPORT_IN_POWER_KEY);
         mKeepScreenOn = findAndInitCheckboxPref(KEEP_SCREEN_ON);
         mEnforceReadExternal = findAndInitCheckboxPref(ENFORCE_READ_EXTERNAL);
