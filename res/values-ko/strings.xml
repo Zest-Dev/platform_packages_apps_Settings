@@ -1902,4 +1902,24 @@
     <string name="user_image_take_photo" msgid="1280274310152803669">"사진 촬영"</string>
     <string name="user_image_choose_photo" msgid="7940990613897477057">"갤러리에서 사진 선택"</string>
     <string name="regulatory_info_text" msgid="5623087902354026557"></string>
+
+    <!-- AMBIENT ADITIONS -->
+
+    <!-- Volume Steps -->
+    <string name="volume_steps_title">미디어 볼륨 단계</string>
+    <string name="volume_steps_summary">재시작이 필요합니다</string>
+
+    <!-- Kill app long-press back -->
+    <string name="kill_app_longpress_back">뒤로가기 길게 눌러 앱 종료하기</string>
+    <string name="kill_app_longpress_back_summary">뒤로가기를 길게 눌러서 현재 앱을 종료 시킵니다</string>
+
+    <!-- Volume Panel -->
+    <string name="volume_overlay_title">볼륨 패널</string>
+    <string name="link_volume_ringtones">벨소리 &amp; 알림음 합치기</string>
+    <string name="link_volume_mutes">알림음 무음모드 영향 받기</string>
+    <string name="volume_ring_only_description">벨소리</string>
+
+    <!-- Reboot Menu -->
+    <string name="reboot_in_power">재시작 메뉴 확장</string>
+    <string name="reboot_in_power_summary">재시작 메뉴를 추가 합니다</string>
 </resources>
