@@ -61,7 +61,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_NOTIFICATION_PULSE = "notification_pulse";
     private static final String KEY_SCREEN_SAVER = "screensaver";
     private static final String KEY_WIFI_DISPLAY = "wifi_display";
-    private static final String KILL_APP_LONGPRESS_BACK = "kill_app_longpress_back";
 
     private static final int DLG_GLOBAL_CHANGE_WARNING = 1;
 
@@ -70,8 +69,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private CheckBoxPreference mAccelerometer;
     private WarnedListPreference mFontSizePref;
     private CheckBoxPreference mNotificationPulse;
-
-    private CheckBoxPreference mKillAppLongpressBack;
 
     private final Configuration mCurConfig = new Configuration();
     
@@ -95,8 +92,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         ContentResolver resolver = getActivity().getContentResolver();
 
         addPreferencesFromResource(R.xml.display_settings);
-
-        mKillAppLongpressBack = (CheckBoxPreference) findPreference(KILL_APP_LONGPRESS_BACK);
 
         mAccelerometer = (CheckBoxPreference) findPreference(KEY_ACCELEROMETER);
         mAccelerometer.setPersistent(false);
@@ -257,7 +252,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         }
 
         updateState();
-        updateKillAppLongpressBackOptions();
     }
 
     @Override
@@ -332,17 +326,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         }
     }
 
-    private void writeKillAppLongpressBackOptions() {
-        Settings.Secure.putInt(getActivity().getContentResolver(),
-                Settings.Secure.KILL_APP_LONGPRESS_BACK,
-                mKillAppLongpressBack.isChecked() ? 1 : 0);
-    }
-
-    private void updateKillAppLongpressBackOptions() {
-        mKillAppLongpressBack.setChecked(Settings.Secure.getInt(
-            getActivity().getContentResolver(), Settings.Secure.KILL_APP_LONGPRESS_BACK, 0) != 0);
-    }
-
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         if (preference == mAccelerometer) {
@@ -353,8 +336,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(getContentResolver(), Settings.System.NOTIFICATION_LIGHT_PULSE,
                     value ? 1 : 0);
             return true;
-        } else if (preference == mKillAppLongpressBack) {
-            writeKillAppLongpressBackOptions();
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }

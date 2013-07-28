@@ -61,11 +61,6 @@
                 android:title="@string/clear_adb_keys" />
 
         <CheckBoxPreference
-            android:key="reboot_in_power"
-            android:title="@string/reboot_in_power"
-            android:summary="@string/reboot_in_power_summary" />
-
-        <CheckBoxPreference
             android:key="bugreport_in_power"
             android:title="@string/bugreport_in_power"
             android:summary="@string/bugreport_in_power_summary"/>

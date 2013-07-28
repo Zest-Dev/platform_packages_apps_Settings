@@ -90,7 +90,6 @@ public class DevelopmentSettings extends PreferenceFragment
     public static final String PREF_SHOW = "show";
 
     private static final String ENABLE_ADB = "enable_adb";
-    private static final String REBOOT_IN_POWER_MENU = "reboot_in_power";
     private static final String CLEAR_ADB_KEYS = "clear_adb_keys";
     private static final String KEEP_SCREEN_ON = "keep_screen_on";
     private static final String ALLOW_MOCK_LOCATION = "allow_mock_location";
@@ -156,7 +155,6 @@ public class DevelopmentSettings extends PreferenceFragment
     private CheckBoxPreference mEnableAdb;
     private Preference mClearAdbKeys;
     private Preference mBugreport;
-    private CheckBoxPreference mReboot;
     private CheckBoxPreference mBugreportInPower;
     private CheckBoxPreference mKeepScreenOn;
     private CheckBoxPreference mEnforceReadExternal;
@@ -237,7 +235,6 @@ public class DevelopmentSettings extends PreferenceFragment
         }
 
         mBugreport = findPreference(BUGREPORT);
-        mReboot = findAndInitCheckboxPref(REBOOT_IN_POWER_MENU);
         mBugreportInPower = findAndInitCheckboxPref(BUGREPORT_IN_POWER_KEY);
         mKeepScreenOn = findAndInitCheckboxPref(KEEP_SCREEN_ON);
         mEnforceReadExternal = findAndInitCheckboxPref(ENFORCE_READ_EXTERNAL);
@@ -447,8 +444,6 @@ public class DevelopmentSettings extends PreferenceFragment
         mHaveDebugSettings = false;
         updateCheckBox(mEnableAdb, Settings.Global.getInt(cr,
                 Settings.Global.ADB_ENABLED, 0) != 0);
-        updateCheckBox(mReboot, Settings.Secure.getInt(cr,
-                Settings.Secure.REBOOT_IN_POWER_MENU, 0) != 0);
         updateCheckBox(mBugreportInPower, Settings.Secure.getInt(cr,
                 Settings.Secure.BUGREPORT_IN_POWER_MENU, 0) != 0);
         updateCheckBox(mKeepScreenOn, Settings.Global.getInt(cr,
@@ -1086,10 +1081,6 @@ public class DevelopmentSettings extends PreferenceFragment
                 mVerifyAppsOverUsb.setChecked(false);
                 updateBugreportOptions();
             }
-        } else if (preference == mReboot) {
-            Settings.Secure.putInt(getActivity().getContentResolver(),
-                    Settings.Secure.REBOOT_IN_POWER_MENU,
-                    mReboot.isChecked() ? 1 : 0);
         } else if (preference == mClearAdbKeys) {
             if (mAdbKeysDialog != null) dismissDialogs();
             mAdbKeysDialog = new AlertDialog.Builder(getActivity())

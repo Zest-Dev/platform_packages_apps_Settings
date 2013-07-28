@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ListPreference
+        android:key="volume_overlay"
+        android:title="@string/volume_overlay_title"
+        android:entries="@array/volume_overlay_entries"
+	android:entryValues="@array/volume_overlay_values" />
+
+    <CheckBoxPreference
+        android:key="dual_pane"
+        android:title="@string/dual_pane"
+        android:summary="@string/dual_pane_summary" />
+
+</PreferenceScreen>
+

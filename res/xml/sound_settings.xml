@@ -25,12 +25,6 @@
             android:dialogTitle="@string/all_volume_title"
             android:persistent="false"
             android:streamType="ring" />
-   
-    <ListPreference
-            android:key="volume_overlay"
-            android:title="@string/volume_overlay_title"
-            android:entries="@array/volume_overlay_entries"
-			android:entryValues="@array/volume_overlay_values" />
 
     <Preference
             android:key="musicfx"
@@ -38,14 +32,6 @@
         <intent android:targetPackage="com.android.musicfx"
                 android:targetClass="com.android.musicfx.ControlPanelPicker" />
     </Preference>
-
-    <ListPreference
-            android:key="volume_steps"
-            android:dialogTitle="@string/volume_steps_title"
-            android:title="@string/volume_steps_title"
-            android:summary="@string/volume_steps_summary"
-            android:entries="@array/entries_volume_steps"
-            android:entryValues="@array/values_volume_steps" />
 
     <PreferenceCategory
             android:key="category_calls_and_notification"

@@ -4537,6 +4537,18 @@
 
     <!-- AMBIENT ADITIONS -->
 
+    <!-- ROMSettings -->
+    <string name="ambient_title">AMBIENT SETTINGS</string>
+    <string name="ambient_settings_title">Ambient Interface</string>
+    <string name="ambient_general_title">Ambient General</string>
+    <string name="ambient_navbar_title">Ambient NavBar</string>
+    <string name="ambient_power_title">Ambient Power</string>
+    <string name="ambient_advanced_title">Ambient Advanced</string>
+
+    <!-- Dual Pane -->
+    <string name="dual_pane">Tablet dual panel mode</string>
+    <string name="dual_pane_summary">Restart settings to take effect</string>
+
     <!-- Volume Steps -->
     <string name="volume_steps_title">Media Volume Steps</string>
     <string name="volume_steps_summary">Requires a System Reboot</string>

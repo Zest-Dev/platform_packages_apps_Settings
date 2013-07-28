@@ -175,6 +175,13 @@
         android:icon="@drawable/ic_settings_accessibility"
         android:title="@string/accessibility_settings" />
 
+    <!-- AMBIENT ROMSettings -->
+    <header
+        android:id="@+id/ambient_settings"
+        android:icon="@drawable/ic_settings_ambient"
+        android:fragment="com.android.settings.ambient.ROMSettings"
+        android:title="@string/ambient_settings_title" />
+
     <!-- Development -->
     <header
         android:id="@+id/development_settings"
