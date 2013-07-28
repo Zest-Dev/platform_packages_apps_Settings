@@ -1935,6 +1935,10 @@
 
     <!-- Volume Panel -->
     <string name="volume_overlay_title">볼륨 패널</string>
+    <string name="volume_overlay_single">한줄만</string>
+    <string name="volume_overlay_expandable">확장 가능한</string>
+    <string name="volume_overlay_expanded">확장된</string>
+    <string name="volume_overlay_none">없음</string>
     <string name="link_volume_ringtones">벨소리 &amp; 알림음 합치기</string>
     <string name="link_volume_mutes">알림음 무음모드 영향 받기</string>
     <string name="volume_ring_only_description">벨소리</string>

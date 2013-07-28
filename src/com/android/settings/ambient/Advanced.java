@@ -83,9 +83,9 @@ public class Advanced extends SettingsPreferenceFragment implements OnPreference
                     mVolumeWake.isChecked() ? 1 : 0);
             return true;
         } else if (preference == mStatusBarTraffic) {
-            value = mStatusBarTraffic.isChecked();
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.STATUS_BAR_TRAFFIC, value ? 1 : 0);
+                    Settings.System.STATUS_BAR_TRAFFIC,
+                    mStatusBarTraffic.isChecked() ? 1 : 0);
             return true;
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
