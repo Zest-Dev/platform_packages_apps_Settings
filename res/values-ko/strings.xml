@@ -1918,8 +1918,16 @@
     <string name="dual_pane_summary">설정을 재시작해야 적용됩니다</string>
 
     <!-- Volume Steps -->
-    <string name="volume_steps_title">미디어 볼륨 단계</string>
-    <string name="volume_steps_summary">재시작이 필요합니다</string>
+    <string name="volume_steps_title">볼륨 단계 컨트롤</string>
+
+    <string name="volume_steps_media_title">미디어 볼륨 단계 조절</string>
+    <string name="volume_steps_media_summary">시스템 재시작이 필요합니다</string>
+
+    <string name="volume_steps_call_title">전화 볼륨 단계 조절</string>
+    <string name="volume_steps_call_summary">시스템 재시작이 필요합니다</string>
+
+    <string name="steps_15">15 (기본값)</string>
+    <string name="steps_5">5 (기본값)</string>
 
     <!-- Kill app long-press back -->
     <string name="kill_app_longpress_back">뒤로가기 길게 눌러 앱 종료하기</string>
@@ -1956,4 +1964,8 @@
     <!-- Volume music control -->
     <string name="volbtn_music_controls_title">볼륨키 음악 컨트롤</string>
     <string name="volbtn_music_controls_summary">화면이 꺼져있을 때, 볼륨키를 길게 눌러 음악을 컨트롤 합니다.</string>
+
+    <!-- Network Speed -->
+    <string name="show_network_speed_title">네트워크 속도</string>
+    <string name="show_network_speed_summary">상태바에 네트워크 속도를 표시합니다</string>
 </resources>

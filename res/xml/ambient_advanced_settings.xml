@@ -19,18 +19,15 @@
     android:title="@string/ambient_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+    <PreferenceScreen
+       android:key="volume_steps_settings"
+       android:fragment="com.android.settings.ambient.VolumeSteps"
+       android:title="@string/volume_steps_title" />
+
     <CheckBoxPreference
        android:key="kill_app_longpress_back"
        android:title="@string/kill_app_longpress_back"
        android:summary="@string/kill_app_longpress_back_summary"/>
-
-    <ListPreference
-       android:key="volume_steps"
-       android:dialogTitle="@string/volume_steps_title"
-       android:title="@string/volume_steps_title"
-       android:summary="@string/volume_steps_summary"
-       android:entries="@array/entries_volume_steps"
-       android:entryValues="@array/values_volume_steps" />
 
     <CheckBoxPreference
         android:key="pref_volume_wake"
@@ -43,5 +40,11 @@
         android:title="@string/volbtn_music_controls_title"
         android:summary="@string/volbtn_music_controls_summary"
         android:persistent="false" />
+
+    <CheckBoxPreference
+       android:key="status_bar_traffic"
+       android:title="@string/show_network_speed_title"
+       android:summary="@string/show_network_speed_summary"
+       android:defaultValue="false" />
 
 </PreferenceScreen>

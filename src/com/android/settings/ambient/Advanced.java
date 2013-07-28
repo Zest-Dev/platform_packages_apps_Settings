@@ -21,7 +21,6 @@ import android.database.ContentObserver;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.PowerManager;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -38,14 +37,14 @@ import com.android.settings.Utils;
 public class Advanced extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
     private static final String KILL_APP_LONGPRESS_BACK = "kill_app_longpress_back";
-    private static final String VOLUME_STEPS = "volume_steps";
     private static final String KEY_VOLBTN_MUSIC_CTRL = "volbtn_music_controls";
     private static final String KEY_VOLUME_WAKE = "pref_volume_wake";
+    private static final String STATUS_BAR_TRAFFIC = "status_bar_traffic";
 
     private CheckBoxPreference mKillAppLongpressBack;
-    private ListPreference mVolumeSteps;
     private CheckBoxPreference mVolBtnMusicCtrl;
     private CheckBoxPreference mVolumeWake;
+    private CheckBoxPreference mStatusBarTraffic;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -57,13 +56,6 @@ public class Advanced extends SettingsPreferenceFragment implements OnPreference
 
         mKillAppLongpressBack = (CheckBoxPreference) findPreference(KILL_APP_LONGPRESS_BACK);
 
-        mVolumeSteps = (ListPreference) findPreference(VOLUME_STEPS);
-        mVolumeSteps.setOnPreferenceChangeListener(this);
-        int volumeSteps = Settings.System.getInt(getContentResolver(),
-                Settings.System.AUDIO_VOLUME_STEPS, 15);
-        mVolumeSteps.setValue(Integer.toString(volumeSteps));
-        mVolumeSteps.setSummary(mVolumeSteps.getEntry());
-
         mVolBtnMusicCtrl = (CheckBoxPreference) findPreference(KEY_VOLBTN_MUSIC_CTRL);
         mVolBtnMusicCtrl.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.VOLBTN_MUSIC_CONTROLS, 1) != 0);
@@ -72,6 +64,9 @@ public class Advanced extends SettingsPreferenceFragment implements OnPreference
         mVolumeWake.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.VOLUME_WAKE_SCREEN, 0) == 1);
 
+        mStatusBarTraffic = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_TRAFFIC);
+        mStatusBarTraffic.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
+                Settings.System.STATUS_BAR_TRAFFIC, 0) == 1)); 
     }
 
     @Override
@@ -87,23 +82,17 @@ public class Advanced extends SettingsPreferenceFragment implements OnPreference
                     Settings.System.VOLUME_WAKE_SCREEN,
                     mVolumeWake.isChecked() ? 1 : 0);
             return true;
+        } else if (preference == mStatusBarTraffic) {
+            value = mStatusBarTraffic.isChecked();
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.STATUS_BAR_TRAFFIC, value ? 1 : 0);
+            return true;
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         final String key = preference.getKey();
-        if (preference == mVolumeSteps) {
-            final int value = Integer.valueOf((String) objValue);
-            final int index = mVolumeSteps.findIndexOfValue((String) objValue);
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.AUDIO_VOLUME_STEPS, value);
-            mVolumeSteps.setSummary(mVolumeSteps.getEntries()[index]);
-            PowerManager pm = (PowerManager) getActivity()
-                    .getSystemService(Context.POWER_SERVICE);
-            pm.reboot("Resetting Media Volume...");
-        }
-
         return true;
     }
 

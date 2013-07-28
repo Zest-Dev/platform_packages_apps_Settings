@@ -4551,8 +4551,16 @@
     <string name="dual_pane_summary">Restart Settings to take effect</string>
 
     <!-- Volume Steps -->
-    <string name="volume_steps_title">Media Volume Steps</string>
-    <string name="volume_steps_summary">Requires a System Reboot</string>
+    <string name="volume_steps_title">Volume Step Control</string>
+
+    <string name="volume_steps_media_title">Media Volume Steps</string>
+    <string name="volume_steps_media_summary">Requires a System Reboot</string>
+
+    <string name="volume_steps_call_title">Call Volume Steps</string>
+    <string name="volume_steps_call_summary">Requires a System Reboot</string>
+
+    <string name="steps_15">15 (Default)</string>
+    <string name="steps_5">5 (Default)</string>
 
     <!-- Kill app long-press back -->
     <string name="kill_app_longpress_back">Kill app back button</string>
@@ -4579,21 +4587,25 @@
     <string name="navigation_bar_width_summary">Navigation bar height if the bar is along a side.</string>
     <string name="navbar_reset">Reset</string>
     <string name="navbar_reset_dimensions_message">Reset all style and dimensions entries to default?</string>
-
     <string name="size_42_dp_default">42 dp (default)</string>
     <string name="size_36_dp">36 dp</string>
     <string name="size_30_dp">30 dp</string>
     <string name="size_24_dp">24 dp</string>
-
     <string name="size_48_dp_default">48 dp (default)</string>
     <string name="size_44_dp">44 dp</string>
     <string name="size_40_dp">40 dp</string>
     <string name="size_42_dp">42 dp</string>
     <string name="size_0_dp">0 dp (off)</string>
 
+    <!-- Volume Wake -->
     <string name="pref_volume_wake_title">Volume rocker wake</string>
     <string name="pref_volume_wake_summary">Pressing the volume rocker up/down will wake the device</string>
+    <!-- Volume Music Control -->
     <string name="volbtn_music_controls_title">Volume rocker music controls</string>
     <string name="volbtn_music_controls_summary">When screen off, long-pressing the volume rockers will seek music tracks</string>
+
+    <!-- Network Speed -->
+    <string name="show_network_speed_title">Network Speed</string>
+    <string name="show_network_speed_summary">Show Network Speed in statsbar</string>
 
 </resources>
