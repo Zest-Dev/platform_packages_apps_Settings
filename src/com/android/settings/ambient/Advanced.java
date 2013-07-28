@@ -39,9 +39,13 @@ public class Advanced extends SettingsPreferenceFragment implements OnPreference
 
     private static final String KILL_APP_LONGPRESS_BACK = "kill_app_longpress_back";
     private static final String VOLUME_STEPS = "volume_steps";
+    private static final String KEY_VOLBTN_MUSIC_CTRL = "volbtn_music_controls";
+    private static final String KEY_VOLUME_WAKE = "pref_volume_wake";
 
     private CheckBoxPreference mKillAppLongpressBack;
     private ListPreference mVolumeSteps;
+    private CheckBoxPreference mVolBtnMusicCtrl;
+    private CheckBoxPreference mVolumeWake;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -60,12 +64,29 @@ public class Advanced extends SettingsPreferenceFragment implements OnPreference
         mVolumeSteps.setValue(Integer.toString(volumeSteps));
         mVolumeSteps.setSummary(mVolumeSteps.getEntry());
 
+        mVolBtnMusicCtrl = (CheckBoxPreference) findPreference(KEY_VOLBTN_MUSIC_CTRL);
+        mVolBtnMusicCtrl.setChecked(Settings.System.getInt(getContentResolver(),
+                Settings.System.VOLBTN_MUSIC_CONTROLS, 1) != 0);
+
+        mVolumeWake = (CheckBoxPreference) findPreference(KEY_VOLUME_WAKE);
+        mVolumeWake.setChecked(Settings.System.getInt(getContentResolver(),
+                Settings.System.VOLUME_WAKE_SCREEN, 0) == 1);
+
     }
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         if (preference == mKillAppLongpressBack) {
             writeKillAppLongpressBackOptions();
+        } else if (preference == mVolBtnMusicCtrl) {
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.VOLBTN_MUSIC_CONTROLS,
+                    mVolBtnMusicCtrl.isChecked() ? 1 : 0);
+        } else if (preference == mVolumeWake) {
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.VOLUME_WAKE_SCREEN,
+                    mVolumeWake.isChecked() ? 1 : 0);
+            return true;
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }

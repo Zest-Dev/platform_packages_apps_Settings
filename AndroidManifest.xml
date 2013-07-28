@@ -1492,10 +1492,12 @@
             android:theme="@style/CryptKeeperBlankTheme"
         />
 
-        <activity android:name=".ambient.Advanced" />
         <activity android:name=".ambient.Interface" />
+        <activity android:name=".ambient.Advanced" />
         <activity android:name=".ambient.ROMSettings" />
         <activity android:name=".ambient.Power" />
+        <activity android:name=".ambient.NavBar" />
+        <activity android:name=".ambient.NavbarDimenSettings" />
 
         <!-- Pseudo-activity used to provide an intent-filter entry point to encryption settings -->
         <activity android:name="Settings$CryptKeeperSettingsActivity"

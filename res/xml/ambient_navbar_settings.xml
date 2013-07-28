@@ -20,23 +20,8 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
     <PreferenceScreen
-        android:key="general_settings"
-        android:fragment="com.android.settings.ambient.Interface"
-        android:title="@string/ambient_general_title" />
-
-    <PreferenceScreen
-        android:key="navbar_settings"
-        android:fragment="com.android.settings.ambient.NavBar"
-        android:title="@string/ambient_navbar_title" />
-
-    <PreferenceScreen
-        android:key="power_key"
-        android:title="@string/ambient_power_title"
-        android:fragment="com.android.settings.ambient.Power" />
-
-    <PreferenceScreen
-        android:key="advanced"
-        android:fragment="com.android.settings.ambient.Advanced"
-        android:title="@string/ambient_advanced_title" />
+       android:key="navbar_dimen_settings"
+       android:fragment="com.android.settings.ambient.NavbarDimenSettings"
+       android:title="@string/navbar_dimen_title" />
 
 </PreferenceScreen>

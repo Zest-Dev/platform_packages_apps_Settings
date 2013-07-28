@@ -32,4 +32,16 @@
        android:entries="@array/entries_volume_steps"
        android:entryValues="@array/values_volume_steps" />
 
+    <CheckBoxPreference
+        android:key="pref_volume_wake"
+        android:title="@string/pref_volume_wake_title"
+        android:summary="@string/pref_volume_wake_summary"
+        android:defaultValue="false" />
+
+    <CheckBoxPreference
+        android:key="volbtn_music_controls"
+        android:title="@string/volbtn_music_controls_title"
+        android:summary="@string/volbtn_music_controls_summary"
+        android:persistent="false" />
+
 </PreferenceScreen>

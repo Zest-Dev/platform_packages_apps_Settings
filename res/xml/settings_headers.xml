@@ -180,7 +180,7 @@
         android:id="@+id/ambient_settings"
         android:icon="@drawable/ic_settings_ambient"
         android:fragment="com.android.settings.ambient.ROMSettings"
-        android:title="@string/ambient_settings_title" />
+        android:title="@string/ambient_title" />
 
     <!-- Development -->
     <header

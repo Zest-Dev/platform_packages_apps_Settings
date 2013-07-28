@@ -1905,6 +1905,18 @@
 
     <!-- AMBIENT ADITIONS -->
 
+    <!-- ROMSettings -->
+    <string name="ambient_title">AMBIENT 설정</string>
+    <string name="ambient_settings_title">Ambient 인터페이스</string>
+    <string name="ambient_general_title">Ambient 일반 설정</string>
+    <string name="ambient_navbar_title">Ambient 네비바 설정</string>
+    <string name="ambient_power_title">Ambient 전원 설정</string>
+    <string name="ambient_advanced_title">Ambient 고급 설정</string>
+
+    <!-- Dual Pane -->
+    <string name="dual_pane">듀얼 패널 모드</string>
+    <string name="dual_pane_summary">설정을 재시작해야 적용됩니다</string>
+
     <!-- Volume Steps -->
     <string name="volume_steps_title">미디어 볼륨 단계</string>
     <string name="volume_steps_summary">재시작이 필요합니다</string>
@@ -1922,4 +1934,26 @@
     <!-- Reboot Menu -->
     <string name="reboot_in_power">재시작 메뉴 확장</string>
     <string name="reboot_in_power_summary">재시작 메뉴를 추가 합니다</string>
+
+    <!-- Navbar -->
+    <string name="ambient_navbar_dimen_cat">네비게이션 바 크기</string>
+    <string name="navbar_dimen_title">네비게이션 바 크기</string>
+    <string name="navigation_bar_height_title">네비게이션 바 높이</string>
+    <string name="navigation_bar_height_summary">세로모드시 네비게이션 바의 높이</string>
+    <string name="navigation_bar_height_landscape_title">네비게이션 바 높이 (가로모드)</string>
+    <string name="navigation_bar_height_landscape_summary">가로모드시 네비게이션 바의 높이</string>
+    <string name="navigation_bar_width_title">네비게이션 바 넓이</string>
+    <string name="navigation_bar_width_summary">네비바가 측면에 있을 경우 네비게이션 바 높이</string>
+    <string name="navbar_reset">초기화</string>
+    <string name="navbar_reset_dimensions_message">높이 및 넓이를 기본값으로 변경할까요?</string>
+    <string name="size_42_dp_default">42 dp (기본값)</string>
+    <string name="size_48_dp_default">48 dp (기본값)</string>
+    <string name="size_0_dp">0 dp (끄기)</string>
+
+    <!-- Volume locker wake -->
+    <string name="pref_volume_wake_title">볼륨키로 화면 켜기</string>
+    <string name="pref_volume_wake_summary">화면이 꺼졌을때 볼륨 키 위/아래를 눌러 화면을 켭니다</string>
+    <!-- Volume music control -->
+    <string name="volbtn_music_controls_title">볼륨키 음악 컨트롤</string>
+    <string name="volbtn_music_controls_summary">화면이 꺼져있을 때, 볼륨키를 길게 눌러 음악을 컨트롤 합니다.</string>
 </resources>

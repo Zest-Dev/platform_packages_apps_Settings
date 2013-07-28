@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012 AMBIENT
+ * Copyright (C) 2013 AMBIENT
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,62 +26,38 @@ import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.util.Log;
-import android.view.WindowManagerGlobal;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-public class Power extends SettingsPreferenceFragment implements
+public class NavBar extends SettingsPreferenceFragment implements
                    OnPreferenceChangeListener {
-    private static final String TAG = "Power";
-
-    private static final String REBOOT_IN_POWER_MENU = "reboot_in_power";
-
-    private CheckBoxPreference mReboot;
+    private static final String TAG = "NavBar";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        addPreferencesFromResource(R.xml.ambient_navbar_settings);
 
-        addPreferencesFromResource(R.xml.ambient_power_settings);
-
-        PreferenceScreen prefSet = getPreferenceScreen();
-
-        mReboot = (CheckBoxPreference) findPreference(REBOOT_IN_POWER_MENU);
-        mReboot.setChecked((Settings.System.getInt(getContentResolver(),
-                Settings.Secure.REBOOT_IN_POWER_MENU, 0) == 1));
-        updateReboot();
-
-    }
-
-    public boolean onPreferenceChange(Preference preference, Object objValue) {
-        final String key = preference.getKey();
-        return false;
-    }
-
-    @Override
-    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        if (preference == mReboot) {
-            updateRebootOptions();
-        }
-        return super.onPreferenceTreeClick(preferenceScreen, preference);
-    }
-
-    private void updateRebootOptions() {
-        Settings.Secure.putInt(getActivity().getContentResolver(),
-                Settings.Secure.REBOOT_IN_POWER_MENU,
-                mReboot.isChecked() ? 1 : 0);
-    }
-
-    private void updateReboot() {
-        mReboot.setChecked(Settings.Secure.getInt(
-            getActivity().getContentResolver(), Settings.Secure.REBOOT_IN_POWER_MENU, 0) != 0);
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        updateReboot();
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+        return super.onPreferenceTreeClick(preferenceScreen, preference);
+    }
+
+    public boolean onPreferenceChange(Preference preference, Object objValue) {
+        final String key = preference.getKey();
+        return true;
+    }
 }
