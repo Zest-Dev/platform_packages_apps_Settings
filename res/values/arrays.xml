@@ -936,15 +936,11 @@
     <string-array name="entries_volume_call_steps">
         <item>@string/steps_5</item>
         <item>7</item>
-        <item>10</item>
-        <item>15</item>
     </string-array>
 
     <string-array name="values_volume_call_steps" translatable="false">
         <item>5</item>
         <item>7</item>
-        <item>10</item>
-        <item>15</item>
     </string-array>
     
     <!-- Volume Overlay options. -->
@@ -1024,5 +1020,18 @@
         <item>30</item>
         <item>24</item>
         <item>0</item>
+    </string-array>
+
+    <!-- Quick pulldown -->
+    <string-array name="quick_pulldown_entries">
+        <item>@string/quick_pulldown_off</item>
+        <item>@string/quick_pulldown_right</item>
+        <item>@string/quick_pulldown_left</item>
+    </string-array>
+
+    <string-array name="quick_pulldown_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
     </string-array>
 </resources>

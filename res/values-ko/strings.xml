@@ -1909,6 +1909,7 @@
     <string name="ambient_title">AMBIENT 설정</string>
     <string name="ambient_settings_title">Ambient 인터페이스</string>
     <string name="ambient_general_title">Ambient 일반 설정</string>
+    <string name="ambient_quick_settings_title">Ambient 빠른설정</string>
     <string name="ambient_navbar_title">Ambient 네비바 설정</string>
     <string name="ambient_power_title">Ambient 전원 설정</string>
     <string name="ambient_advanced_title">Ambient 고급 설정</string>
@@ -1919,13 +1920,13 @@
 
     <!-- Volume Steps -->
     <string name="volume_steps_title">볼륨 단계 컨트롤</string>
-
+    <!-- Media -->
     <string name="volume_steps_media_title">미디어 볼륨 단계 조절</string>
     <string name="volume_steps_media_summary">시스템 재시작이 필요합니다</string>
-
+    <!-- Call -->
     <string name="volume_steps_call_title">전화 볼륨 단계 조절</string>
     <string name="volume_steps_call_summary">시스템 재시작이 필요합니다</string>
-
+    <!-- Array -->
     <string name="steps_15">15 (기본값)</string>
     <string name="steps_5">5 (기본값)</string>
 
