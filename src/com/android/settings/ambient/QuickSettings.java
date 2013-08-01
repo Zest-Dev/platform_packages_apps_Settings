@@ -88,7 +88,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         String value = Settings.System.getString(resolver, Settings.System.QS_QUICK_PULLDOWN);
         String[] pulldownArray = getResources().getStringArray(R.array.quick_pulldown_values);
         if (pulldownArray[0].equals(value)) {
-            directionId = R.string.quick_pulldown_position;
+            directionId = R.string.quick_pulldown_off;
             mQuickPulldown.setValueIndex(0);
             mQuickPulldown.setSummary(getResources().getString(directionId));
         } else if (pulldownArray[1].equals(value)) {

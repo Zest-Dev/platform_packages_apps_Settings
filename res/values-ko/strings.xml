@@ -1904,9 +1904,10 @@
     <string name="regulatory_info_text" msgid="5623087902354026557"></string>
 
     <!-- AMBIENT ADITIONS -->
+    <string name="ok">확인</string>
 
     <!-- ROMSettings -->
-    <string name="ambient_title">AMBIENT 설정</string>
+    <string name="ambient_title">Ambient 설정</string>
     <string name="ambient_settings_title">Ambient 인터페이스</string>
     <string name="ambient_general_title">Ambient 일반 설정</string>
     <string name="ambient_quick_settings_title">Ambient 빠른설정</string>
@@ -1929,6 +1930,9 @@
     <!-- Array -->
     <string name="steps_15">15 (기본값)</string>
     <string name="steps_5">5 (기본값)</string>
+    <!-- Reboot Alert -->
+    <string name="steps_reset">재시작 하시겠습니까??</string>
+    <string name="steps_reset_message">재시작해야 적용 됩니다</string>
 
     <!-- Kill app long-press back -->
     <string name="kill_app_longpress_back">뒤로가기 길게 눌러 앱 종료하기</string>
@@ -1947,6 +1951,13 @@
     <!-- Reboot Menu -->
     <string name="reboot_in_power">재시작 메뉴 확장</string>
     <string name="reboot_in_power_summary">재시작 메뉴를 추가 합니다</string>
+    <string name="power_menu_expanded_desktop">데스크톱 확장</string>
+    <string name="summary_expanded_desktop">%1$s</string>
+    <string name="expanded_desktop_summary">데스크톱 확장모드를 변경합니다</string>
+    <string name="expanded_desktop_disabled">꺼짐</string>
+    <string name="expanded_desktop_only_nav_bar">네비게이션바만 숨기기</string>
+    <string name="expanded_desktop_only_status_bar">상태바만 숨기기</string>
+    <string name="expanded_desktop_both_hidden">네비바와 상태바 숨기기</string>
 
     <!-- Navbar -->
     <string name="ambient_navbar_dimen_cat">네비게이션 바 크기</string>
@@ -1980,6 +1991,9 @@
     <string name="quick_pulldown_summary_left">왼쪽</string>
     <string name="quick_pulldown_summary_right">오른쪽</string>
     <string name="quick_pulldown_position">방향: </string>
+    <string name="quick_pulldown_off">꺼짐</string>
+    <string name="quick_pulldown_right">오른쪽</string>
+    <string name="quick_pulldown_left">왼쪽</string>
 
     <!-- Lock Screen Shortcuts -->
     <string name="lock_screen_title">Ambient 잠금화면</string>

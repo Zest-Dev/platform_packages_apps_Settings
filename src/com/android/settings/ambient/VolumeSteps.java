@@ -78,25 +78,36 @@ public class VolumeSteps extends SettingsPreferenceFragment implements
             Settings.System.putInt(getContentResolver(),
                     Settings.System.AUDIO_VOLUME_STEPS_MEDIA, value);
             mVolumeStepsMedia.setSummary(mVolumeStepsMedia.getEntries()[index]);
-            PowerManager pm = (PowerManager) getActivity()
-                    .getSystemService(Context.POWER_SERVICE);
-            pm.reboot("Resetting Media Volume...");
+            reboot();
         } else if (preference == mVolumeStepsCall) {
             final int value = Integer.valueOf((String) objValue);
             final int index = mVolumeStepsCall.findIndexOfValue((String) objValue);
             Settings.System.putInt(getContentResolver(),
                     Settings.System.AUDIO_VOLUME_STEPS_CALL, value);
             mVolumeStepsCall.setSummary(mVolumeStepsCall.getEntries()[index]);
-            PowerManager pm = (PowerManager) getActivity()
-                    .getSystemService(Context.POWER_SERVICE);
-            pm.reboot("Resetting Call Volume...");
+            reboot();
         }
-        return true;
+        return false;
     }
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         return super.onPreferenceTreeClick(preferenceScreen, preference);
+    }
+
+    private void reboot() {
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
+        alertDialog.setTitle(R.string.steps_reset);
+        alertDialog.setMessage(R.string.steps_reset_message);
+        alertDialog.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                PowerManager pm = (PowerManager) getActivity()
+                    .getSystemService(Context.POWER_SERVICE);
+                pm.reboot("Resetting Volume Steps.");
+            }
+        });
+        alertDialog.setNegativeButton(R.string.cancel, null);
+        alertDialog.create().show();
     }
 
 }

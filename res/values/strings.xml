@@ -4539,13 +4539,14 @@
     <string name="ok">OK</string>
 
     <!-- ROMSettings -->
-    <string name="ambient_title">AMBIENT SETTINGS</string>
+    <string name="ambient_title">Ambient Control</string>
     <string name="ambient_settings_title">Ambient Interface</string>
     <string name="ambient_general_title">Ambient General</string>
     <string name="ambient_quick_settings_title">Ambient QuickSettings</string>
     <string name="ambient_navbar_title">Ambient NavBar</string>
     <string name="ambient_power_title">Ambient Power</string>
     <string name="ambient_advanced_title">Ambient Advanced</string>
+    <string name="lock_screen_title">Ambient Lockscreen</string>
 
     <!-- Dual Pane -->
     <string name="dual_pane">Dual-panel mode</string>
@@ -4559,6 +4560,9 @@
     <string name="volume_steps_call_summary">Requires a System Reboot</string>
     <string name="steps_15">15 (Default)</string>
     <string name="steps_5">5 (Default)</string>
+
+    <string name="steps_reset">Reboot system?</string>
+    <string name="steps_reset_message">Your phone will reboot</string>
 
     <!-- Kill app long-press back -->
     <string name="kill_app_longpress_back">Kill app back button</string>
@@ -4577,6 +4581,13 @@
     <!-- Reboot Menu -->
     <string name="reboot_in_power">Power menu reboot</string>
     <string name="reboot_in_power_summary">Include reboot options in power menu</string>
+    <string name="power_menu_expanded_desktop">Expanded desktop</string>
+    <string name="summary_expanded_desktop">%1$s</string>
+    <string name="expanded_desktop_summary">Show or change expanded desktop mode</string>
+    <string name="expanded_desktop_disabled">Off</string>
+    <string name="expanded_desktop_only_nav_bar">Hide navigation bar</string>
+    <string name="expanded_desktop_only_status_bar">Hide status bar</string>
+    <string name="expanded_desktop_both_hidden">Hide navigation and status bar</string>
 
     <!-- Navbar -->
     <string name="ambient_navbar_dimen_cat">Navigation bar Dimensions</string>
@@ -4616,9 +4627,11 @@
     <string name="quick_pulldown_summary_left">Left</string>
     <string name="quick_pulldown_summary_right">Right</string>
     <string name="quick_pulldown_position">Position: </string>
+    <string name="quick_pulldown_off">Off</string>
+    <string name="quick_pulldown_right">Right</string>
+    <string name="quick_pulldown_left">Left</string>
 
     <!-- Lock Screen Shortcuts -->
-    <string name="lock_screen_title">Lock screen</string>
     <string name="lockscreen_target_info">Drag the slider to targets to assign shortcuts</string>
     <string name="lockscreen_target_title">Slider shortcuts</string>
     <string name="lockscreen_target_summary">View or change custom lock screen shortcuts</string>

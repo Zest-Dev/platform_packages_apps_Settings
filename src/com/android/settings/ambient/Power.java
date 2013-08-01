@@ -36,8 +36,10 @@ public class Power extends SettingsPreferenceFragment implements
     private static final String TAG = "Power";
 
     private static final String REBOOT_IN_POWER_MENU = "reboot_in_power";
+    private static final String KEY_EXPANDED_DESKTOP = "power_menu_expanded_desktop";
 
     private CheckBoxPreference mReboot;
+    private ListPreference mExpandedDesktop;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -50,12 +52,37 @@ public class Power extends SettingsPreferenceFragment implements
         mReboot = (CheckBoxPreference) findPreference(REBOOT_IN_POWER_MENU);
         mReboot.setChecked((Settings.System.getInt(getContentResolver(),
                 Settings.Secure.REBOOT_IN_POWER_MENU, 0) == 1));
+
+        mExpandedDesktop = (ListPreference) prefSet.findPreference(KEY_EXPANDED_DESKTOP);
+        mExpandedDesktop.setOnPreferenceChangeListener(this);
+        int expandedDesktopValue = Settings.System.getInt(getContentResolver(),
+                Settings.System.EXPANDED_DESKTOP_MODE, 0);
+        mExpandedDesktop.setValue(String.valueOf(expandedDesktopValue));
+        mExpandedDesktop.setSummary(mExpandedDesktop.getEntries()[expandedDesktopValue]);
+
         updateReboot();
 
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
-        final String key = preference.getKey();
+        if (preference == mExpandedDesktop) {
+            int expandedDesktopValue = Integer.valueOf((String) objValue);
+            int index = mExpandedDesktop.findIndexOfValue((String) objValue);
+            if (expandedDesktopValue == 0) {
+                Settings.System.putInt(getContentResolver(),
+                        Settings.System.POWER_MENU_EXPANDED_DESKTOP_ENABLED, 0);
+                // Disable expanded desktop if enabled
+                Settings.System.putInt(getContentResolver(),
+                        Settings.System.EXPANDED_DESKTOP_STATE, 0);
+            } else {
+                Settings.System.putInt(getContentResolver(),
+                        Settings.System.POWER_MENU_EXPANDED_DESKTOP_ENABLED, 1);
+            }
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.EXPANDED_DESKTOP_MODE, expandedDesktopValue);
+            mExpandedDesktop.setSummary(mExpandedDesktop.getEntries()[index]);
+            return true;
+        }
         return false;
     }
 
